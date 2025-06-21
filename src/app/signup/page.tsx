@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
-import { auth } from "@/firebase";
+import { getAuthClient } from "@/firebase";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -15,6 +15,10 @@ export default function Signup() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      const auth = getAuthClient();
+      if (!auth) {
+        throw new Error("Firebase configuration missing");
+      }
       await createUserWithEmailAndPassword(auth, email, password);
       router.push("/");
     } catch (error: unknown) {
