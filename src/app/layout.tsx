@@ -24,6 +24,9 @@ export default function RootLayout({
             <Link href="/login" className="hover:underline">
               로그인
             </Link>
+            <Link href="/signup" className="hover:underline">
+              회원가입
+            </Link>
             <Link href="/problems" className="hover:underline">
               문제
             </Link>
