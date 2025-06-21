@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex flex-col justify-between min-h-screen p-4 bg-gradient-to-br from-white to-purple-50">
+    <main className="flex flex-col justify-between min-h-screen p-4 bg-gradient-to-br from-white to-purple-50 dark:from-gray-800 dark:to-gray-900">
       <div className="flex flex-col items-center justify-center flex-1 gap-6 text-center">
         <h1 className="text-4xl font-bold tracking-tight">수학 학습 사이트</h1>
         <Image src="/next.svg" alt="logo" width={180} height={38} className="dark:invert" />
@@ -14,7 +14,7 @@ export default function Home() {
         <input
           type="text"
           placeholder="프롬프트를 입력하세요"
-          className="border rounded p-2 w-full max-w-md shadow"
+          className="border rounded p-2 w-full max-w-md shadow dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
         />
       </div>
     </main>

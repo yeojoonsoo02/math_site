@@ -16,13 +16,13 @@ export default function Problems() {
   }, [grade, level]);
 
   return (
-    <div className="flex flex-col items-center min-h-screen gap-6 p-4 bg-gradient-to-br from-white to-purple-50">
+    <div className="flex flex-col items-center min-h-screen gap-6 p-4 bg-gradient-to-br from-white to-purple-50 dark:from-gray-800 dark:to-gray-900">
       <h1 className="text-3xl font-bold">문제 모음</h1>
       <div className="flex gap-4">
         <select
           value={grade}
           onChange={(e) => setGrade(e.target.value)}
-          className="border rounded p-2"
+          className="border rounded p-2 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
         >
           <option value="">학년 선택</option>
           <option value="1">1학년</option>
@@ -35,7 +35,7 @@ export default function Problems() {
         <select
           value={level}
           onChange={(e) => setLevel(e.target.value)}
-          className="border rounded p-2"
+          className="border rounded p-2 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
         >
           <option value="">난이도 선택</option>
           <option value="쉬움">쉬움</option>

@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <header className="flex items-center justify-between p-4 border-b bg-gradient-to-r from-purple-600 to-violet-700 text-white">
+        <header className="flex items-center justify-between p-4 border-b bg-gradient-to-r from-purple-600 to-violet-700 text-white dark:from-purple-800 dark:to-violet-900">
           <Link href="/" className="font-bold text-lg hover:underline">
             Math Site
           </Link>
