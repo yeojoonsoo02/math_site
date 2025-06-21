@@ -2,7 +2,9 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+Create a `.env.local` file and fill it using `.env.local.example`.
+
+Then run the development server:
 
 ```bash
 npm run dev
@@ -13,6 +15,10 @@ pnpm dev
 # or
 bun dev
 ```
+
+## Firebase Configuration
+
+Copy `.env.local.example` to `.env.local` and provide your Firebase credentials.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
