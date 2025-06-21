@@ -3,11 +3,13 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { FirebaseError } from "firebase/app";
 import { auth } from "@/firebase";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -15,9 +17,15 @@ export default function Login() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       router.push("/");
-    } catch (error) {
+    } catch (error: unknown) {
       console.error(error);
-      alert("로그인에 실패했습니다");
+      if (error instanceof FirebaseError) {
+        setErrorMsg(error.code);
+      } else if (error instanceof Error) {
+        setErrorMsg(error.message);
+      } else {
+        setErrorMsg("로그인에 실패했습니다");
+      }
     }
   };
 
@@ -45,6 +53,9 @@ export default function Login() {
         >
           로그인
         </button>
+        {errorMsg && (
+          <p className="mt-2 text-red-600 dark:text-red-400 text-sm">{errorMsg}</p>
+        )}
       </form>
       <Link href="/signup" className="text-purple-700 hover:underline dark:text-purple-300">
         회원가입
