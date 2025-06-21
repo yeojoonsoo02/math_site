@@ -1,18 +1,19 @@
 import Link from "next/link";
 
-export default function Login() {
+export default function Signup() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen gap-6 p-4 bg-gradient-to-br from-purple-50 to-white">
-      <h1 className="text-3xl font-bold">로그인</h1>
+      <h1 className="text-3xl font-bold">회원가입</h1>
       <form className="flex flex-col gap-3 w-full max-w-md rounded border p-4 shadow">
         <input type="text" placeholder="아이디" className="border p-2 rounded" />
+        <input type="email" placeholder="이메일" className="border p-2 rounded" />
         <input type="password" placeholder="비밀번호" className="border p-2 rounded" />
-        <button type="submit" className="mt-2 rounded bg-violet-600 py-2 text-white hover:bg-violet-700">
-          로그인
+        <button type="submit" className="mt-2 rounded bg-purple-600 py-2 text-white hover:bg-purple-700">
+          가입하기
         </button>
       </form>
-      <Link href="/signup" className="text-purple-700 hover:underline">
-        회원가입
+      <Link href="/login" className="text-violet-700 hover:underline">
+        로그인 하러가기
       </Link>
     </div>
   );
